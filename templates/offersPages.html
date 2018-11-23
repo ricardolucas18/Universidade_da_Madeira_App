@@ -1,0 +1,157 @@
+<html lang="en">
+<head>
+    <title>{{ nomeCurso }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index">LP</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a hhref="/index">Home</a></li>
+                <li><a href="/about">About Institution</a></li>
+                <li><a href="/statistics">Statistics</a></li>
+                <li><a href="/offers">Offers</a></li>
+                <li><a href="/docentes">Teaching Staff</a></li>
+                <li><a href="/contacts">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+        </div>
+        <div class="col-sm-8 text-left">
+            <h2>{{ nomeCurso }}</h2>
+            <h3>Grau Académico:</h3>
+            <p>{{ tipoCurso }}</p>
+            <h3>Cod. Intituição:</h3>
+            <p> {{ codEscola }}</p>
+            <h3>Duração Curso:</h3>
+            <p>{{ duracaoCurso }}</p>
+            <h3>Nome do Director do Curso:</h3>
+            <p>{{ nomeDirector }}</p>
+            <h3>Contacto Director:</h3>
+            <p>{{ emaiDirector }}</p>
+            <h3>Saídas:</h3>
+            <p>{{ saidasCurso }}</p>
+            <h3>Objectivos do Curso:</h3>
+            <p>{{ objectivosCurso }}</p>
+            <p>
+
+            </p>
+            <h2>Plano de Estudos:</h2>
+            <table>
+                <tbody>
+                    <tr>
+
+                        <th>Nome</th>
+                        <th>Area Cientifica</th>
+                        <th>Nivel</th>
+                        <th>Possui Ficha Descritiva</th>
+                        <th>Disciplina Activa</th>
+                        <th>Ano Curricular</th>
+                        <th>Semestre</th>
+                        <th>Horas Teoricas Semanais</th>
+                        <th>Horas Teorica Pratica Semanais</th>
+                        <th>Horas Práticas Laboratorial</th>
+                        <th>Horas Trabalho em Campo</th>
+                        <th>Horas de Seminário Semanais</th>
+                        <th>Horas Estágio Semanais</th>
+                        <th>Horas Teorica Práticas Semanais</th>
+                        <th>Horas Orientação Tutorial Semanais</th>
+                        <th>ETC's</th>
+                    </tr>
+                {% for item in cadeirasCurso %}
+                    <tr>
+
+                        <th>{{ item.nome_disciplina }}</th>
+                        <th>{{ item.area_cientifica }}</th>
+                        <th>{{ item.nivel }}</th>
+                        <th>{{ item.ficha_descritiva }}</th>
+                        <th>{{ item.disciplina_ativa }}</th>
+                        <th>{{ item.ano_curricular }}</th>
+                        <th>{{ item.semestre }}</th>
+                        <th>{{ item.horas_teoricas_semanal }}</th>
+                        <th>{{ item.horas_teorica_praticas_semanal }}</th>
+                        <th>{{ item.horas_praticas_laboratorial }}</th>
+                        <th>{{ item.horas_trabalho_campo }}</th>
+                        <th>{{ item.horas_seminario_semanal }}</th>
+                        <th>{{ item.horas_estagio_semanal }}</th>
+                        <th>{{ item.horas_teorica_praticas_semanal }}</th>
+                        <th>{{ item.horas_orientacao_tutorial_semanal }}</th>
+                        <th>{{ item.creditos_disciplina }}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-sm-2 sidenav">
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid text-center">
+    <p>Morada: {{ moradaUniversidade }}</p>
+    <p>Email Universidade: {{ email_Universidade }} | Email Reitoria: {{ email_reitoriaUniversidade }}</p>
+    <p>Telefone: +{{ telefoneUniversidade }} | Fax: +{{ faxUniversidade }}</p>
+    <p>Horário de Atendimento: {{ horarioUniversidade }}</p>
+</footer>
+
+</body>
+</html>

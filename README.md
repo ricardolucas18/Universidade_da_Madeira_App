@@ -28,7 +28,7 @@ The objective was to collect information about University of Madeira courses tha
 * Teachers
   * Teacher page
 
-*Contact
+* Contact
 
 To run this project:
 

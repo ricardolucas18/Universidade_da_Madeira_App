@@ -30,7 +30,7 @@ The objective was to collect information about University of Madeira courses tha
 
 * Contact
 
-### To run this project:
+### To Run this project:
 
 ```
  python Application.py 
